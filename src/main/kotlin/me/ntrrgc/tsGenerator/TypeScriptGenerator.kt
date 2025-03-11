@@ -130,6 +130,7 @@ class TypeScriptGenerator(
     }
 
     private fun formatClassType(type: KClass<*>): String {
+        visitClass(type)
         return if (type.java.isEnum || type in ignoredSuperclasses) type.simpleName!! else interfacesPrefixes + type.simpleName!!
     }
 
